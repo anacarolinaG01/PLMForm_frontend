@@ -1,0 +1,227 @@
+.formContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 20px auto;
+  align-items: center;
+  width: 90%;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.formContent h1 {
+  text-align: center;
+  font-size: 30px;
+  color: #1a202c;
+
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.errorMessage {
+  background: rgba(255, 59, 48, 0.1);
+  border: 1px solid rgba(255, 59, 48, 0.3);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+  color: #c53030;
+  font-weight: 500;
+  text-align: center;
+  width: 85%;
+  max-width: 600px;
+  backdrop-filter: blur(5px);
+}
+
+.successMessage {
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+  color: #22543d;
+  font-weight: 500;
+  text-align: center;
+  width: 85%;
+  max-width: 600px;
+  backdrop-filter: blur(5px);
+}
+
+.paragrafo {
+  font-size: 16px;
+  margin: 0 auto;
+  line-height: 1.6;
+  width: 85%;
+  color: rgba(40, 40, 40, 0.858);
+}
+
+.pImportant {
+  font-size: 15px;
+  margin: 10px auto;
+  margin-top: 40px;
+  text-align: justify;
+  font-weight: 500;
+  line-height: 1.3;
+  width: 85%;
+  color: rgba(5, 26, 75, 0.795);
+}
+
+.inputBox {
+  padding: 10px;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 400px;
+  gap: 0.5rem;
+}
+
+.inputGroup label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #000000dd;
+  margin-bottom: 0.25rem;
+  text-align: left;
+}
+
+.inputError {
+  border-color: #e53e3e !important;
+  box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.1) !important;
+}
+
+.fieldError {
+  color: #e53e3e;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 0.25rem;
+  text-align: left;
+}
+
+.fieldsetError {
+  border-color: rgba(229, 62, 62, 0.3) !important;
+  background: rgba(255, 59, 48, 0.02) !important;
+}
+
+.questionError {
+  color: #e53e3e;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  text-align: center;
+  padding: 0.5rem;
+  background: rgba(229, 62, 62, 0.05);
+  border-radius: 4px;
+  border: 1px solid rgba(229, 62, 62, 0.2);
+}
+
+.inputBox input {
+  padding: 0.75rem;
+  font-size: 14px;
+  border: 1px solid rgba(138, 138, 138, 0.3);
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.inputBox input:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+}
+
+legend,
+.perguntaContent {
+  font-size: 17px;
+  font-weight: 500;
+  text-align: left;
+  padding: 10px;
+}
+
+.formContent button {
+  padding: 0.75rem 2rem;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #166dbe;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(66, 153, 225, 0.3);
+  transition: all 0.2s ease;
+  margin-top: 1rem;
+  width: 30%;
+}
+
+.formContent button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(66, 153, 225, 0.4);
+}
+
+.formContent button:active {
+  transform: translateY(0);
+}
+
+.formContent fieldset {
+  background: rgba(255, 255, 255, 0.719);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(130, 138, 148, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 860px;
+}
+
+.formContent fieldset legend {
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  color: #000000;
+}
+
+.opcoesContent {
+  display: flex;
+  flex-direction: row;
+  gap: 1.1rem;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.opcoesContent label {
+  display: flex;
+  flex-direction: row;
+  font-size: 15px;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.4rem;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.opcoesContent label:hover {
+  background: rgba(66, 153, 225, 0.05);
+}
+
+.opcoesContent input[type="radio"] {
+  accent-color: #4299e1;
+  transform: scale(1.2);
+}
