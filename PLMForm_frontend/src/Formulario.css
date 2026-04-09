@@ -72,12 +72,20 @@
   color: rgba(5, 26, 75, 0.795);
 }
 
+.pImportant2 {
+  font-size: 15px;
+  margin: 10px auto;
+  text-align: justify;
+  font-weight: 500;
+  line-height: 1.3;
+  width: 85%;
+  color: rgb(244, 51, 51);
+}
+
 .inputBox {
   padding: 10px;
   width: 90%;
   display: flex;
-  flex-direction: row;
-  gap: 2rem;
   margin: 0 auto;
   align-items: center;
   justify-content: center;
@@ -92,7 +100,7 @@
 }
 
 .inputGroup label {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   color: #000000dd;
   margin-bottom: 0.25rem;
@@ -131,11 +139,11 @@
 
 .inputBox input {
   padding: 0.75rem;
-  font-size: 14px;
+  font-size: 15px;
   border: 1px solid rgba(138, 138, 138, 0.3);
   border-radius: 8px;
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(5px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
@@ -143,6 +151,25 @@
 }
 
 .inputBox input:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+}
+
+.comentarios {
+  padding: 0.75rem;
+  font-size: 14px;
+  border: 1px solid rgba(138, 138, 138, 0.3);
+  border-radius: 8px;
+  width: 100%;
+  max-width: 800px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.comentarios:focus {
   outline: none;
   border-color: #4299e1;
   box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);

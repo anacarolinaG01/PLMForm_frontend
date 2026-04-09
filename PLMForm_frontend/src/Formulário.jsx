@@ -94,9 +94,9 @@ export default function Formulario() {
       };
     });
 
-    if (somaTotal > 44) {
+    if (somaTotal > 20) {
       setErrorMessage(
-        "A soma das respostas ultrapassou 44 pontos. Revise suas respostas.",
+        "A soma das horas informadas ultrapassou 20h. Por favor, revise suas respostas.",
       );
       return;
     }
@@ -105,14 +105,26 @@ export default function Formulario() {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        nomeCompleto: data.nomeCompleto,
+        // nomeCompleto: data.nomeCompleto,
         emailCorporativo: data.emailCorporativo,
         respostas: respostasArray,
         somaTotal,
+        comentarios: data.comentarios,
       }),
     });
 
     if (!response.ok) {
+      if (response.status === 400) {
+        try {
+          const errorData = await response.json();
+          if (errorData.message === "Este e-mail já enviou uma resposta") {
+            setErrorMessage("e-mail já registrado");
+            return;
+          }
+        } catch (e) {
+          console.error("Erro ao processar resposta de erro:", e);
+        }
+      }
       const errorText = await response.text().catch(() => response.statusText);
       setErrorMessage(`Erro ao enviar: ${response.status} ${errorText}`);
       return;
@@ -131,6 +143,12 @@ export default function Formulario() {
         semanal dedicado ao uso dos sistemas. Para isso, solicitamos que
         responda às questões abaixo.
       </p>
+      <p className="pImportant2">
+        <strong>Aviso:</strong> A soma total das horas de uso no sistema não
+        pode ultrapassar <strong>20 horas semanais</strong>, respeitando a carga
+        horária de trabalho. Se suas respostas excederem esse limite, revise as
+        opções selecionadas antes de enviar o formulário.
+      </p>
       <p className="paragrafo">
         <strong>O preenchimento leva apenas alguns minutos.</strong>
       </p>
@@ -138,7 +156,7 @@ export default function Formulario() {
       <fieldset>
         <legend>Informações Pessoais</legend>
         <div className="inputBox">
-          <div className="inputGroup">
+          {/* <div className="inputGroup">
             <label htmlFor="nomeCompleto">Nome completo</label>
             <input
               id="nomeCompleto"
@@ -152,7 +170,7 @@ export default function Formulario() {
             {errors.nomeCompleto && (
               <span className="fieldError">{errors.nomeCompleto.message}</span>
             )}
-          </div>
+          </div> */}
 
           <div className="inputGroup">
             <label htmlFor="emailCorporativo">Email corporativo</label>
@@ -217,6 +235,18 @@ export default function Formulario() {
           )}
         </fieldset>
       ))}
+
+      <fieldset>
+        <legend>Comentários</legend>
+        <textarea
+          className="comentarios"
+          placeholder="Utilize este espaço para registrar comentários, dúvidas ou observações..."
+          {...register("comentarios")}
+          disabled={isSubmitted}
+          rows="4"
+          cols="50"
+        />
+      </fieldset>
 
       {/* <p className="somaTotal">
         <strong>Soma total:</strong> {somaTotal}
