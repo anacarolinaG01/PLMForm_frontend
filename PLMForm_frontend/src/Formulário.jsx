@@ -101,7 +101,7 @@ export default function Formulario() {
       return;
     }
 
-    const response = await fetch("http://localhost:3000/respostas", {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/respostas`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
