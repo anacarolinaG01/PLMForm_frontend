@@ -65,6 +65,7 @@ export default function Formulario() {
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const respostas = watch("respostas");
 
   const somaTotal = respostas
@@ -101,6 +102,8 @@ export default function Formulario() {
       return;
     }
 
+    setIsLoading(true);
+
     const response = await fetch(`${import.meta.env.VITE_API_URL}/respostas`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -119,6 +122,7 @@ export default function Formulario() {
           const errorData = await response.json();
           if (errorData.message === "Este e-mail já enviou uma resposta") {
             setErrorMessage("e-mail já registrado");
+            setIsLoading(false);
             return;
           }
         } catch (e) {
@@ -127,11 +131,13 @@ export default function Formulario() {
       }
       const errorText = await response.text().catch(() => response.statusText);
       setErrorMessage(`Erro ao enviar: ${response.status} ${errorText}`);
+      setIsLoading(false);
       return;
     }
 
     setSuccessMessage("Formulário enviado com sucesso!");
     setIsSubmitted(true);
+    setIsLoading(false);
   }
 
   return (
@@ -264,8 +270,20 @@ export default function Formulario() {
         </div>
       )}
 
-      <button type="submit" disabled={isSubmitted}>
-        {isSubmitted ? "Enviado" : "Enviar"}
+      <button
+        type="submit"
+        disabled={isSubmitted || isLoading}
+        className="btn-submit"
+      >
+        {isLoading ? (
+          <span className="loader-container">
+            <i className="spinner"></i> Enviando...
+          </span>
+        ) : isSubmitted ? (
+          "Enviado"
+        ) : (
+          "Enviar"
+        )}
       </button>
     </form>
   );
